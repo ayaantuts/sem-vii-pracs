@@ -1,0 +1,20 @@
+[project]
+name = "bdcil"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.9,<=3.12"
+dependencies = [
+    "dask-ml[complete]>=2024.4.4",
+    "dask[complete]>=2024.8.0",
+    "matplotlib>=3.9.4",
+    "notebook>=7.4.5",
+    "numpy>=2.0.2",
+    "pandas>=2.3.1",
+    "scikit-learn>=1.6.1",
+]
+
+[dependency-groups]
+dev = [
+    "nbconvert>=7.16.6",
+]
