@@ -1,0 +1,14 @@
+[project]
+name = "nlp"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "indic-nlp-library>=0.92",
+    "nltk>=3.9.1",
+    "notebook>=7.4.5",
+    "pip>=25.2",
+    "spacy>=3.8.7",
+    "stanza>=1.10.1",
+]
