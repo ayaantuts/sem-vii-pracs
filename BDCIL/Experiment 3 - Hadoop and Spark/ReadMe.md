@@ -197,7 +197,6 @@ set +e
 ---
 ```bash
 echo "==== 1. Clean previous installations ===="
-sudo apt remove hadoop-cli hdfs-cli -y
 sudo rm -rf /opt/hadoop /opt/hadoop-3.4.1 /opt/Spark /opt/spark-4.0.-bin-hadoop3 ~/hadoop_data
 echo "Removing Environment variables"
 sed -i '/export HADOOP_HOME/d' ~/.bashrc
@@ -318,6 +317,8 @@ EOL
 ---
 ```bash
 echo "==== 6. Format Hadoop NameNode ===="
+sudo apt remove hadoop-cli -y
+sudo apt remove hdfs-cli -y
 sudo mkdir -p /opt/Hadoop/logs
 sudo chown -R $USER:$USER /opt/Hadoop/logs
 sudo chmod -R 755 /opt/Hadoop/logs
@@ -325,6 +326,7 @@ sudo chown -R $USER:$USER /opt/hadoop
 sudo chown -R /home/ubuntu/hadoop_data
 yes | hdfs namenode -format
 ```
+- It is essential to remove any hadoop-cli or hdfs-cli packages installed in the system, before fomatting namenode.
 - This takes care of all possible errors due to the format command to format the namenode(master node).
 ---
 ```bash

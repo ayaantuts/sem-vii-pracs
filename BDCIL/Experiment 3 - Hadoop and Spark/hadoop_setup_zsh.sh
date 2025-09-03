@@ -5,7 +5,6 @@
 set +e
 
 echo "==== 1. Clean previous installations ===="
-sudo apt remove hadoop-cli hdfs-cli -y
 # Remove Hadoop & Spark folders if they exist
 sudo rm -rf /opt/hadoop /opt/hadoop-3.4.1 /opt/Spark /opt/spark-4.0.-bin-hadoop3 ~/hadoop_data
 
@@ -112,6 +111,8 @@ sudo cat > $HADOOP_HOME/etc/hadoop/yarn-site.xml <<EOL
 EOL
 
 echo "==== 6. Format Hadoop NameNode ===="
+sudo apt remove hadoop-cli -y
+sudo apt remove hdfs-cli -y
 sudo mkdir -p /opt/Hadoop/logs
 sudo chown -R $USER:$USER /opt/Hadoop/logs
 sudo chmod -R 755 /opt/Hadoop/logs

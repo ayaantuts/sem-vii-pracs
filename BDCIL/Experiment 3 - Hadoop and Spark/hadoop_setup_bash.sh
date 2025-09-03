@@ -5,7 +5,6 @@
 set +e
 
 echo "==== 1. Clean previous installations ===="
-sudo apt remove hadoop-cli hdfs-cli -y
 # Remove Hadoop & Spark folders if they exist
 sudo rm -rf /opt/hadoop /opt/hadoop-3.4.1 /opt/Spark /opt/spark-4.0.-bin-hadoop3 ~/hadoop_data
 
@@ -127,6 +126,8 @@ chmod 700 ~/.ssh
 chmod 600 ~/.ssh/authorized_keys
 
 echo "==== 7. Start Hadoop Services ===="
+sudo apt remove hadoop-cli -y
+sudo apt remove hdfs-cli -y
 # Automatically insert or update JAVA_HOME in hadoop-env.sh
 sudo chown -R $USER:$USER $HADOOP_HOME/etc/hadoop/hadoop-env.sh
 sudo sed -i.bak "/^export JAVA_HOME=/d" $HADOOP_HOME/etc/hadoop/hadoop-env.sh && \
